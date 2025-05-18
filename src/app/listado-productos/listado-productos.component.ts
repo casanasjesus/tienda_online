@@ -13,7 +13,12 @@ import { ProductoService } from '../producto.service';
 export class ListadoProductosComponent {
   productos: Producto[] = [];
 
-  constructor(private readonly productoService: ProductoService) {}
+  constructor(private readonly productoService: ProductoService) {
+    this.productoService.detalleProductoEmitter.subscribe(
+      (producto: Producto) =>
+        alert(`Producto: ${producto.descripcion}, $${producto.precio}`)
+    );
+  }
 
   ngOnInit() {
     this.productos = this.productoService.productos;
