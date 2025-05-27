@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Producto } from '../producto/producto.model';
 import { ProductoService } from '../producto.service';
 import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-formulario',
@@ -13,9 +14,12 @@ export class FormularioComponent {
   descripcionInput: string = '';
   precioInput: number | null = null;
 
-  constructor(private readonly productoService: ProductoService) {}
+  constructor(
+    private readonly productoService: ProductoService,
+    private readonly router: Router
+  ) {}
 
-  agregarProducto(event: Event) {
+  guardarProducto(event: Event) {
     event.preventDefault();
 
     if (
@@ -33,5 +37,11 @@ export class FormularioComponent {
 
     this.descripcionInput = '';
     this.precioInput = null;
+
+    this.router.navigate(['/']);
+  }
+
+  cancelar() {
+    this.router.navigate(['/']);
   }
 }
