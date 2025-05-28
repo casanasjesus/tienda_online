@@ -35,7 +35,7 @@ export class FormularioComponent {
     }
   }
 
-  guardarProducto(event: Event) {
+  guardarProducto(event: Event): void {
     event.preventDefault();
 
     if (
@@ -53,15 +53,16 @@ export class FormularioComponent {
       this.precioInput
     );
 
-    this.productoService.agregarProducto(producto);
+    this.productoService.guardarProducto(producto);
 
+    this.idProducto = null;
     this.descripcionInput = '';
     this.precioInput = null;
 
     this.router.navigate(['/']);
   }
 
-  cancelar() {
+  cancelar(): void {
     this.router.navigate(['/']);
   }
 }

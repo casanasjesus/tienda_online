@@ -5,7 +5,7 @@ import { Producto } from './producto/producto.model';
   providedIn: 'root',
 })
 export class ProductoService {
-  private idProducto = 0;
+  private idProducto = 1;
   productos: Producto[] = [];
 
   constructor() {
@@ -20,8 +20,18 @@ export class ProductoService {
     this.productos.push(producto1, producto2, producto3);
   }
 
-  agregarProducto(producto: Producto) {
-    this.productos.push(producto);
+  guardarProducto(producto: Producto): void {
+    if (producto.id === null) {
+      producto.id = this.idProducto++;
+      this.productos.push(producto);
+    } else {
+      const index = this.productos.findIndex(
+        (currentProducto: Producto) => currentProducto.id === producto.id
+      );
+      if (index !== -1) {
+        this.productos[index] = producto;
+      }
+    }
   }
 
   getProductoById(id: number): Producto | undefined {

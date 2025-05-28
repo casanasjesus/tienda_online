@@ -1,4 +1,4 @@
-<h5 class="text-success mt-3 text-center">Agregar Nuevo Producto</h5>
+<h5 class="text-success mt-3 text-center">Detalle producto</h5>
 
 <form class="my-4 w-50 mx-auto" #f="ngForm" (submit)="f.form.valid && guardarProducto($event)">
   <div class="d-flex justify-content-between align-items-center">
@@ -9,7 +9,7 @@
       [(ngModel)]="precioInput" required />
   </div>
   <div class="d-flex justify-content-center mt-3">
-    <button type="submit" class="btn btn-primary">Agregar producto</button>
+    <button type="submit" class="btn btn-primary">Guardar producto</button>
     <button type="button" class="btn btn-danger mx-3" (click)="cancelar()">Cancelar</button>
   </div>
 </form>
