@@ -35,6 +35,16 @@ export class FormularioComponent {
     }
   }
 
+  limpiarFormulario(): void {
+    this.idProducto = null;
+    this.descripcionInput = '';
+    this.precioInput = null;
+  }
+
+  redirigirInicio(): void {
+    this.router.navigate(['/']);
+  }
+
   guardarProducto(event: Event): void {
     event.preventDefault();
 
@@ -54,15 +64,15 @@ export class FormularioComponent {
     );
 
     this.productoService.guardarProducto(producto);
-
-    this.idProducto = null;
-    this.descripcionInput = '';
-    this.precioInput = null;
-
-    this.router.navigate(['/']);
+    this.limpiarFormulario();
+    this.redirigirInicio();
   }
 
-  cancelar(): void {
-    this.router.navigate(['/']);
+  eliminarProducto(): void {
+    if (this.idProducto !== null) {
+      this.productoService.eliminarProducto(this.idProducto);
+      this.limpiarFormulario();
+      this.redirigirInicio();
+    }
   }
 }

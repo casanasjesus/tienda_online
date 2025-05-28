@@ -37,4 +37,14 @@ export class ProductoService {
   getProductoById(id: number): Producto | undefined {
     return this.productos.find((producto: Producto) => producto?.id === id);
   }
+
+  eliminarProducto(idProducto: number): void {
+    const index = this.productos.findIndex(
+      (producto: Producto) => producto.id === idProducto
+    );
+
+    if (index !== -1) {
+      this.productos.splice(index, 1);
+    }
+  }
 }
