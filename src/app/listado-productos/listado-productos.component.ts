@@ -11,18 +11,34 @@ import { Router } from '@angular/router';
   templateUrl: './listado-productos.component.html',
 })
 export class ListadoProductosComponent {
-  productos: Producto[] = [];
+  productos: { [llave: string]: Producto } = {};
 
   constructor(
     private readonly productoService: ProductoService,
     private readonly router: Router
   ) {}
 
-  ngOnInit() {
-    this.productos = this.productoService.productos;
+  cargarProductos(): void {
+    this.productoService
+      .listarProductos()
+      .subscribe((productos: { [llave: string]: Producto } = {}) => {
+        this.productos = productos;
+      });
   }
 
-  agregarProducto() {
+  ngOnInit(): void {
+    this.cargarProductos();
+  }
+
+  obtenerLlaves(): string[] {
+    if (this.productos) {
+      return Object.keys(this.productos);
+    } else {
+      return [];
+    }
+  }
+
+  agregarProducto(): void {
     this.router.navigate(['agregar']);
   }
 }

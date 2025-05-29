@@ -1,27 +1,21 @@
 import { Injectable } from '@angular/core';
 import { Producto } from './producto/producto.model';
+import { DatosService } from './datos.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ProductoService {
-  private idProducto = 1;
-  productos: Producto[] = [];
+  productos: { [llave: string]: Producto } = {};
 
-  constructor() {
-    this.inicializarProducto();
-  }
+  constructor(private readonly datosService: DatosService) {}
 
-  inicializarProducto() {
-    const producto1 = new Producto(this.idProducto++, 'Pantalón', 130.0);
-    const producto2 = new Producto(this.idProducto++, 'Camisa', 80.0);
-    const producto3 = new Producto(this.idProducto++, 'Playera', 50.0);
-
-    this.productos.push(producto1, producto2, producto3);
+  listarProductos() {
+    return this.datosService.listarProductos();
   }
 
   guardarProducto(producto: Producto): void {
-    if (producto.id === null) {
+    /* if (producto.id === null) {
       producto.id = this.idProducto++;
       this.productos.push(producto);
     } else {
@@ -31,20 +25,21 @@ export class ProductoService {
       if (index !== -1) {
         this.productos[index] = producto;
       }
-    }
+    } */
   }
 
-  getProductoById(id: number): Producto | undefined {
-    return this.productos.find((producto: Producto) => producto?.id === id);
+  getProductoByLlave(llave: string): Producto | undefined {
+    return undefined;
+    // return this.productos.find((producto: Producto) => producto?.id === id);
   }
 
   eliminarProducto(idProducto: number): void {
-    const index = this.productos.findIndex(
+    /* const index = this.productos.findIndex(
       (producto: Producto) => producto.id === idProducto
     );
 
     if (index !== -1) {
       this.productos.splice(index, 1);
-    }
+    } */
   }
 }
