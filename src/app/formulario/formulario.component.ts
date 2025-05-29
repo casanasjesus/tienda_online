@@ -59,14 +59,14 @@ export class FormularioComponent {
 
     const producto = new Producto(this.descripcionInput, this.precioInput);
 
-    this.productoService.guardarProducto(producto);
+    this.productoService.guardarProducto(producto, this.llaveProducto);
     this.limpiarFormulario();
     this.redirigirInicio();
   }
 
   eliminarProducto(): void {
     if (this.llaveProducto !== null) {
-      // this.productoService.eliminarProducto(this.llaveProducto);
+      this.productoService.eliminarProducto(this.llaveProducto);
       this.limpiarFormulario();
       this.redirigirInicio();
     }

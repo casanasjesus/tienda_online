@@ -16,4 +16,18 @@ export class DatosService {
       `${this.url}datos.json`
     );
   }
+
+  agregarProducto(producto: Producto): Observable<any> {
+    return this.httpClient.post(`${this.url}datos.json`, producto);
+  }
+
+  modificarProducto(producto: Producto, llave: string): Observable<any> {
+    const url = `${this.url}datos/${llave}.json`;
+    return this.httpClient.put(url, producto);
+  }
+
+  eliminarProducto(llave: string): Observable<any> {
+    const url = `${this.url}datos/${llave}.json`;
+    return this.httpClient.delete(url);
+  }
 }

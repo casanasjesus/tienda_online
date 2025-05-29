@@ -3,6 +3,7 @@ import { Producto } from '../producto/producto.model';
 import { ProductoComponent } from '../producto/producto.component';
 import { ProductoService } from '../producto.service';
 import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-listado-productos',
@@ -12,6 +13,7 @@ import { Router } from '@angular/router';
 })
 export class ListadoProductosComponent {
   productos: { [llave: string]: Producto } = {};
+  productosSubscripcion: Subscription | null = null;
 
   constructor(
     private readonly productoService: ProductoService,
@@ -28,6 +30,10 @@ export class ListadoProductosComponent {
 
   ngOnInit(): void {
     this.cargarProductos();
+    this.productosSubscripcion =
+      this.productoService.prodcutosActualizados.subscribe((productos) => {
+        this.productos = productos;
+      });
   }
 
   obtenerLlaves(): string[] {
@@ -40,5 +46,11 @@ export class ListadoProductosComponent {
 
   agregarProducto(): void {
     this.router.navigate(['agregar']);
+  }
+
+  ngOnDestroy(): void {
+    if (this.productosSubscripcion !== null) {
+      this.productosSubscripcion.unsubscribe();
+    }
   }
 }
