@@ -12,11 +12,11 @@ export class AppComponent {
 
   constructor(private readonly loginService: LoginService) {}
 
-  isAutenticado() {
+  isAutenticado(): boolean {
     return this.loginService.isAutenticado();
   }
 
-  logout() {
+  logout(): void {
     this.loginService.logout();
   }
 }
