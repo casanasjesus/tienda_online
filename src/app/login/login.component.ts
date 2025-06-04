@@ -10,7 +10,7 @@ import { LoginService } from '../login.service';
 export class LoginComponent {
   constructor(private readonly loginService: LoginService) {}
 
-  login(form: NgForm) {
+  login(form: NgForm): void {
     const { email, password } = form.value;
     this.loginService.login(email, password);
   }

@@ -14,7 +14,7 @@ export class LoginService {
     private readonly firebaseService: FirebaseService
   ) {}
 
-  login(email: string, password: string) {
+  login(email: string, password: string): void {
     const auth = this.firebaseService.auth;
 
     signInWithEmailAndPassword(auth, email, password)
@@ -34,15 +34,15 @@ export class LoginService {
       });
   }
 
-  getIdToken() {
+  getIdToken(): string | null {
     return this.token;
   }
 
-  isAutenticado() {
+  isAutenticado(): boolean {
     return this.token !== null;
   }
 
-  logout() {
+  logout(): void {
     const auth = this.firebaseService.auth;
     auth
       .signOut()
