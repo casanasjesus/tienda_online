@@ -5,10 +5,9 @@ import { FormsModule } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
-  selector: 'app-formulario',
-  standalone: true,
-  imports: [FormsModule],
-  templateUrl: './formulario.component.html',
+    selector: 'app-formulario',
+    imports: [FormsModule],
+    templateUrl: './formulario.component.html'
 })
 export class FormularioComponent {
   llaveProducto: string | null = null;

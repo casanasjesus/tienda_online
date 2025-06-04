@@ -6,10 +6,9 @@ import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 
 @Component({
-  selector: 'app-listado-productos',
-  standalone: true,
-  imports: [ProductoComponent],
-  templateUrl: './listado-productos.component.html',
+    selector: 'app-listado-productos',
+    imports: [ProductoComponent],
+    templateUrl: './listado-productos.component.html'
 })
 export class ListadoProductosComponent {
   productos: { [llave: string]: Producto } = {};

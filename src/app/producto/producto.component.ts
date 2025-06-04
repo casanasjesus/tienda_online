@@ -3,10 +3,9 @@ import { Producto } from './producto.model';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-producto',
-  standalone: true,
-  imports: [],
-  templateUrl: './producto.component.html',
+    selector: 'app-producto',
+    imports: [],
+    templateUrl: './producto.component.html'
 })
 export class ProductoComponent {
   @Input() producto!: Producto;
