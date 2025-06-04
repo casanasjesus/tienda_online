@@ -7,7 +7,7 @@ import { signInWithEmailAndPassword } from 'firebase/auth';
   providedIn: 'root',
 })
 export class LoginService {
-  token: string = '';
+  token: string | null = null;
 
   constructor(
     private readonly router: Router,
@@ -36,5 +36,22 @@ export class LoginService {
 
   getIdToken() {
     return this.token;
+  }
+
+  isAutenticado() {
+    return this.token !== null;
+  }
+
+  logout() {
+    const auth = this.firebaseService.auth;
+    auth
+      .signOut()
+      .then(() => {
+        this.token = null;
+        this.router.navigate(['login']);
+      })
+      .catch((error) => {
+        console.warn(`Error al cerrar sesión: ${error}`);
+      });
   }
 }
