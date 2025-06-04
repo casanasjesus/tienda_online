@@ -30,6 +30,5 @@ export const routes: Routes = [
   {
     path: '**',
     component: ErrorComponent,
-    canActivate: [LoginGuardianService],
   },
 ];
