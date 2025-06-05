@@ -1,27 +1,73 @@
-# TiendaOnline
+# 🛒 Tienda Online - Angular + Docker
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.5.
+Este repositorio contiene una aplicación web desarrollada con **Angular**, la cual ha sido **contenerizada usando Docker** y servida en mediante **Nginx**.
 
-## Development server
+---
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## 🚀 Tecnologías utilizadas
 
-## Code scaffolding
+- Angular versión 20
+- Docker
+- Nginx (como servidor estático de producción)
+- Node.js (para compilar la app Angular)
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+---
 
-## Build
+## 🧩 Requisitos previos
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Asegurate de tener instalado en tu sistema:
 
-## Running unit tests
+- [Docker](https://www.docker.com/) (versión reciente)
+- [Git](https://git-scm.com/)
+- Acceso a una terminal (Linux, macOS o Git Bash en Windows)
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+---
 
-## Running end-to-end tests
+## 📦 Clonar el repositorio
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+```bash
+git clone https://github.com/usuario/tienda-online.git
+cd tienda-online
+```
 
-## Further help
+## 🛠️ Construye la imagen en Docker
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+```bash
+docker build -t tienda-online .
+```
+
+## ▶️ Ejecuta el contenedor
+
+```bash
+docker run -d -p 8080:80 tienda-online
+```
+
+## 🌐 Accede a la app en tu navegador web
+
+http://localhost:8080
+
+## 🧼 Detener y eliminar el contenedor
+
+```bash
+docker ps
+```
+
+```bash
+docker stop ID_CONTENEDOR
+```
+
+```bash
+docker rmi tienda-online
+```
+
+📁 Estructura del proyecto
+
+```bash
+tienda-online/
+├── src/                    # Código fuente Angular
+├── dist/tienda-online/     # Build generado
+│   └── browser/            # Archivos de producción (HTML, JS, CSS, entre otros)
+├── Dockerfile              # Archivo de definición del contenedor
+├── README.md               # Documentación del proyecto
+└── ...
+```
