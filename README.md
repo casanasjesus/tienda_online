@@ -17,7 +17,7 @@ Este repositorio contiene una aplicación web desarrollada con **Angular**, la c
 
 Asegurate de tener instalado en tu sistema:
 
-- [Docker](https://www.docker.com/) (versión reciente)
+- [Docker](https://www.docker.com/)
 - [Git](https://git-scm.com/)
 - Acceso a una terminal (Linux, macOS o Git Bash en Windows)
 
