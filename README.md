@@ -1,6 +1,6 @@
 # 🛒 Tienda Online - Angular + Docker
 
-Este repositorio contiene una aplicación web desarrollada con **Angular**, la cual ha sido **contenerizada usando Docker** y servida en mediante **Nginx**.
+Este repositorio contiene una aplicación web desarrollada con **Angular**, la cual ha sido **contenerizada usando Docker** y servida mediante **Nginx**.
 
 ---
 
