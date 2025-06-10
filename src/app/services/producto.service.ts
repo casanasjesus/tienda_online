@@ -21,7 +21,7 @@ export class ProductoService {
     this.productosActualizados.next(this.productos);
   }
 
-  private actualizarListaProductos(): void {
+  actualizarListaProductos(): void {
     this.listarProductos().subscribe(
       (productos: { [llave: string]: Producto }) => {
         this.setProductos(productos);
