@@ -30,7 +30,7 @@ export class ListadoProductosComponent {
   ngOnInit(): void {
     this.cargarProductos();
     this.productosSubscripcion =
-      this.productoService.prodcutosActualizados.subscribe((productos) => {
+      this.productoService.productosActualizados.subscribe((productos) => {
         this.productos = productos;
       });
   }

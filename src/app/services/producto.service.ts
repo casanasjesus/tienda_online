@@ -8,7 +8,7 @@ import { Observable, Subject } from 'rxjs';
 })
 export class ProductoService {
   productos: { [llave: string]: Producto } = {};
-  prodcutosActualizados = new Subject<{ [llave: string]: Producto }>();
+  productosActualizados = new Subject<{ [llave: string]: Producto }>();
 
   constructor(private readonly datosService: DatosService) {}
 
@@ -18,7 +18,7 @@ export class ProductoService {
 
   setProductos(productos: { [llave: string]: Producto }): void {
     this.productos = productos;
-    this.prodcutosActualizados.next(this.productos);
+    this.productosActualizados.next(this.productos);
   }
 
   private actualizarListaProductos(): void {

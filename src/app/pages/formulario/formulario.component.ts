@@ -23,15 +23,19 @@ export class FormularioComponent {
   ngOnInit(): void {
     const llave = this.route.snapshot.paramMap.get('llave');
 
-    if (llave) {
-      const producto = this.productoService.getProductoByLlave(llave);
+    this.productoService.productosActualizados.subscribe((productos) => {
+      if (llave && productos[llave]) {
+        const producto = productos[llave];
 
-      if (producto) {
         this.llaveProducto = llave;
         this.descripcionInput = producto.descripcion;
         this.precioInput = producto.precio;
       }
-    }
+    });
+
+    this.productoService.listarProductos().subscribe((productos) => {
+      this.productoService.setProductos(productos);
+    });
   }
 
   limpiarFormulario(): void {
