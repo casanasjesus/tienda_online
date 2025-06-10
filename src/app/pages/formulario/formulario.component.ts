@@ -1,13 +1,13 @@
 import { Component } from '@angular/core';
-import { Producto } from '../producto/producto.model';
-import { ProductoService } from '../producto.service';
+import { Producto } from '../../components/producto/producto.model';
+import { ProductoService } from '../../services/producto.service';
 import { FormsModule } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
-    selector: 'app-formulario',
-    imports: [FormsModule],
-    templateUrl: './formulario.component.html'
+  selector: 'app-formulario',
+  imports: [FormsModule],
+  templateUrl: './formulario.component.html',
 })
 export class FormularioComponent {
   llaveProducto: string | null = null;

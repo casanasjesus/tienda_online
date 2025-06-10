@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { Producto } from '../producto/producto.model';
-import { ProductoComponent } from '../producto/producto.component';
-import { ProductoService } from '../producto.service';
+import { Producto } from '../../components/producto/producto.model';
+import { ProductoComponent } from '../../components/producto/producto.component';
+import { ProductoService } from '../../services/producto.service';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 

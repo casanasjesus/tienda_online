@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Producto } from './producto/producto.model';
+import { Producto } from './../components/producto/producto.model';
 import { LoginService } from './login.service';
 
 @Injectable({

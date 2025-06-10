@@ -1,9 +1,9 @@
 import { Routes } from '@angular/router';
-import { ListadoProductosComponent } from './listado-productos/listado-productos.component';
-import { FormularioComponent } from './formulario/formulario.component';
-import { ErrorComponent } from './error/error.component';
-import { LoginComponent } from './login/login.component';
-import { LoginGuardianService } from './login-guardian.service';
+import { ListadoProductosComponent } from './pages/listado-productos/listado-productos.component';
+import { FormularioComponent } from './pages/formulario/formulario.component';
+import { ErrorComponent } from './pages/error/error.component';
+import { LoginComponent } from './pages/login/login.component';
+import { LoginGuardianService } from './services/login-guardian.service';
 
 export const routes: Routes = [
   { path: 'login', component: LoginComponent },
