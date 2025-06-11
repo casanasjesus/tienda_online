@@ -30,6 +30,11 @@ git clone https://github.com/usuario/tienda-online.git
 cd tienda-online
 ```
 
+## 🛠️ Instalar dependencias de la aplicación
+```bash
+npm install
+```
+
 ## 🛠️ Construye la imagen en Docker
 
 ```bash
