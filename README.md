@@ -26,7 +26,7 @@ Asegurate de tener instalado en tu sistema:
 ## 📦 Clonar el repositorio
 
 ```bash
-git clone https://github.com/usuario/tienda-online.git
+git clone https://github.com/casanasjesus/tienda_online.git
 cd tienda-online
 ```
 
